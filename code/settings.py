@@ -1,8 +1,10 @@
 # game setup
 WIDTH    = 1280
-HEIGTH   = 720
+HEIGHT   = 720
 FPS      = 60
 TILESIZE = 64
+
+# p = player, x = obstacle, rest is empty/walkable space
 
 WORLD_MAP = [
 ['x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x','x'],
