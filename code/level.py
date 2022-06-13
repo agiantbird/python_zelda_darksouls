@@ -23,11 +23,11 @@ class Level:
         layouts = {
             'boundary': import_csv_layout('../map/map_FloorBlocks.csv'),
             'grass': import_csv_layout('../map/map_Grass.csv'),
-            'object': import_csv_layout('../map/map_Objects.csv')
-
+            'object': import_csv_layout('../map/map_Objects.csv'),
         }
         graphics = {
-            'grass': import_folder('../graphics/Grass')
+            'grass': import_folder('../graphics/Grass'),
+            'objects': import_folder('../graphics/objects')
         }
 
         for style, layout in layouts.items():
@@ -41,13 +41,11 @@ class Level:
                         if style == 'grass':
                             random_grass_image = choice(graphics['grass'])
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_grass_image)
-                        if style == 'object':
-                            pass
 
-        #         if col == 'x':
-        #             Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
-        #         if col == 'p':
-        #             self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites)
+                        if style == 'object':
+                            surf = graphics['objects'][int(col)]
+                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
+
         self.player = Player((2000, 1430), [self.visible_sprites], self.obstacle_sprites)
 
 
